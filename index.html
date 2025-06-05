@@ -3,52 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Dashboard</title>
+    <title>Santhosh K - Frontend Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
         
-        body {
-            font-family: 'Inter', sans-serif;
+        * {
+            font-family: 'Poppins', sans-serif;
         }
         
         .gradient-bg {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
         }
         
         .floating-animation {
             animation: float 6s ease-in-out infinite;
         }
         
-        .floating-animation:nth-child(2) {
-            animation-delay: -2s;
-        }
-        
-        .floating-animation:nth-child(3) {
-            animation-delay: -4s;
-        }
+        .floating-animation:nth-child(2) { animation-delay: -2s; }
+        .floating-animation:nth-child(3) { animation-delay: -4s; }
         
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
         
-        .glow-effect {
-            box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+        .skill-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
         }
         
-        .project-icon {
-            font-size: 2.5rem;
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        .skill-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .typing-animation {
+            border-right: 2px solid #fff;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: #fff; }
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #667eea;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .contact-form {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
         }
         
         .bg-pattern {
@@ -57,156 +106,471 @@
         }
     </style>
 </head>
-<body class="min-h-screen gradient-bg bg-pattern">
-    <!-- Background decoration -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute -top-40 -right-40 w-80 h-80 bg-white opacity-10 rounded-full floating-animation"></div>
-        <div class="absolute top-40 -left-40 w-60 h-60 bg-white opacity-10 rounded-full floating-animation"></div>
-        <div class="absolute bottom-40 right-20 w-40 h-40 bg-white opacity-10 rounded-full floating-animation"></div>
-    </div>
-
-    <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
-        <div class="w-full max-w-6xl">
-            <!-- Header -->
-            <div class="text-center mb-12">
-                <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
-                    JavaScript Projects
-                </h1>
-                <p class="text-xl text-white/80 font-light">
-                    Explore my collection of interactive web applications
-                </p>
-                <div class="w-24 h-1 bg-white/50 mx-auto mt-6 rounded-full"></div>
+<body class="bg-white text-black">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold text-gray-800">
+                    Santosh<span class="text-purple-600">K</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-purple-600">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-purple-600">About</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-purple-600">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-purple-600">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white shadow-lg hidden">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-purple-600">Home</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-purple-600">About</a>
+                <a href="#skills" class="block py-2 text-gray-700 hover:text-purple-600">Skills</a>
+                <a href="#projects" class="block py-2 text-gray-700 hover:text-purple-600">Projects</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-purple-600">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-            <!-- Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Task Manager -->
-                <a href="PROJECTS/to-do-list/TO-DO-LIS.html" class="block">
-                    <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-8 card-hover glow-effect group">
-                        <div class="text-center">
-                            <div class="project-icon mb-4 group-hover:scale-110 transition-transform duration-300">📝</div>
-                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Task Manager</h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                Organize your daily tasks with this intuitive to-do list application featuring add, edit, and delete functionality.
-                            </p>
-                            <div class="mt-6 inline-flex items-center text-purple-600 font-medium group-hover:text-purple-700 transition-colors">
-                                Launch Project 
-                                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen bg-white flex items-center justify-center relative overflow-hidden">
+        <!-- Background decorations -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-black opacity-10 rounded-full floating-animation"></div>
+            <div class="absolute top-40 -left-40 w-60 h-60 bg-black opacity-10 rounded-full floating-animation"></div>
+            <div class="absolute bottom-40 right-20 w-40 h-40 bg-black opacity-10 rounded-full floating-animation"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-black px-4 max-w-4xl mx-auto">
+            <div class="mb-8">
+                <div class="w-40 h-40 mx-auto mb-6 rounded-full bg-black/10 backdrop-blur-sm flex items-center justify-center text-6xl">
+                    👋
+                </div>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
+                Hi, I'm <span class="text-yellow-500">Santosh K</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-4 typing-animation font-light text-black">
+                Frontend Developer & UI/UX Designer
+            </p>
+            <p class="text-lg md:text-xl mb-8 text-black/80 max-w-2xl mx-auto leading-relaxed">
+                Passionate about creating beautiful, responsive web applications with modern technologies. 
+                I bring ideas to life through clean code and intuitive design.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#projects" class="bg-black text-white px-8 py-4 rounded-full font-semibold hover:bg-yellow-400 hover:text-black transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    View My Work
                 </a>
-
-                <!-- Tic Tac Toe -->
-                <a href="PROJECTS/tic-tac-toe/tic.html" class="block">
-                    <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-8 card-hover glow-effect group">
-                        <div class="text-center">
-                            <div class="project-icon mb-4 group-hover:scale-110 transition-transform duration-300">🎮</div>
-                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Tic Tac Toe</h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                Classic strategy game reimagined with modern design. Challenge a friend in this timeless battle of X's and O's.
-                            </p>
-                            <div class="mt-6 inline-flex items-center text-purple-600 font-medium group-hover:text-purple-700 transition-colors">
-                                Launch Project 
-                                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Rock Paper Scissors -->
-                <a href="PROJECTS/stone-paper-sizzer/Paper.html" class="block">
-                    <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-8 card-hover glow-effect group">
-                        <div class="text-center">
-                            <div class="project-icon mb-4 group-hover:scale-110 transition-transform duration-300">✂️</div>
-                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Rock Paper Scissors</h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                Test your luck against the computer in this animated version of the classic hand game with score tracking.
-                            </p>
-                            <div class="mt-6 inline-flex items-center text-purple-600 font-medium group-hover:text-purple-700 transition-colors">
-                                Launch Project 
-                                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Password Generator -->
-                <a href="PROJECTS/random-genarate-password/Password.html" class="block">
-                    <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-8 card-hover glow-effect group">
-                        <div class="text-center">
-                            <div class="project-icon mb-4 group-hover:scale-110 transition-transform duration-300">🔒</div>
-                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Password Generator</h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                Generate secure, customizable passwords with various character sets and length options for enhanced security.
-                            </p>
-                            <div class="mt-6 inline-flex items-center text-purple-600 font-medium group-hover:text-purple-700 transition-colors">
-                                Launch Project 
-                                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Quiz App -->
-                <a href="PROJECTS/quiz/Quiz.html" class="block">
-                    <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-8 card-hover glow-effect group">
-                        <div class="text-center">
-                            <div class="project-icon mb-4 group-hover:scale-110 transition-transform duration-300">❓</div>
-                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Quiz App</h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                Interactive quiz application with multiple-choice questions, real-time scoring, and progress tracking.
-                            </p>
-                            <div class="mt-6 inline-flex items-center text-purple-600 font-medium group-hover:text-purple-700 transition-colors">
-                                Launch Project 
-                                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- E-Commerce -->
-                <a href="PROJECTS/e-commerce/ecom.html" class="block">
-                    <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-8 card-hover glow-effect group">
-                        <div class="text-center">
-                            <div class="project-icon mb-4 group-hover:scale-110 transition-transform duration-300">🛍️</div>
-                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">E-Commerce</h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                Full-featured online shopping experience with product catalog, cart functionality, and checkout process.
-                            </p>
-                            <div class="mt-6 inline-flex items-center text-purple-600 font-medium group-hover:text-purple-700 transition-colors">
-                                Launch Project 
-                                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
+                <a href="#contact" class="border-2 border-black text-black px-8 py-4 rounded-full font-semibold hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-105">
+                    Get In Touch
                 </a>
             </div>
+        </div>
+    </section>
 
-            <!-- Footer -->
-            <div class="text-center mt-16">
-                <p class="text-white/70 text-lg">
-                    Built with passion for web development
+
+     <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">About Me</h2>
+                <div class="section-divider w-24 mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    I'm a passionate frontend developer with a keen eye for design and a love for creating 
+                    seamless user experiences. As a fresher in the field, I bring enthusiasm, fresh perspectives, 
+                    and a strong foundation in modern web technologies.
                 </p>
-                <div class="flex justify-center space-x-4 mt-4">
-                    <div class="w-2 h-2 bg-white/50 rounded-full animate-pulse"></div>
-                    <div class="w-2 h-2 bg-white/50 rounded-full animate-pulse" style="animation-delay: 0.5s"></div>
-                    <div class="w-2 h-2 bg-white/50 rounded-full animate-pulse" style="animation-delay: 1s"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">My Journey</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        I started my web development journey with a fascination for how websites work. 
+                        What began as curiosity has evolved into a passion for creating digital experiences 
+                        that are both functional and beautiful.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        I believe in writing clean, maintainable code and creating designs that prioritize 
+                        user experience. Every project is an opportunity to learn something new and push 
+                        the boundaries of what's possible on the web.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-6">
+                        <span class="bg-gray-100 text-black px-4 py-2 rounded-full text-sm font-medium">Problem Solver</span>
+                        <span class="bg-gray-200 text-black px-4 py-2 rounded-full text-sm font-medium">Quick Learner</span>
+                        <span class="bg-gray-300 text-black px-4 py-2 rounded-full text-sm font-medium">Team Player</span>
+                        <span class="bg-gray-400 text-white px-4 py-2 rounded-full text-sm font-medium">Creative Thinker</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-gray-600 to-black w-80 h-80 mx-auto rounded-2xl flex items-center justify-center text-white text-8xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                        💻
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">My Skills</h2>
+                <div class="section-divider w-24 mx-auto mb-8"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Here are the technologies and tools I work with to bring ideas to life
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- HTML -->
+                <div class="skill-card bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-gray-700 hover:border-gray-500 transition-all duration-300">
+                    <div class="text-4xl mb-4 bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto">🌐</div>
+                    <h3 class="font-semibold text-lg mb-2 text-white">HTML5</h3>
+                    <p class="text-sm text-gray-400">Semantic markup & accessibility</p>
+                </div>
+                
+                <!-- CSS -->
+                <div class="skill-card bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-gray-700 hover:border-gray-500 transition-all duration-300">
+                    <div class="text-4xl mb-4 bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto">🎨</div>
+                    <h3 class="font-semibold text-lg mb-2 text-white">CSS3</h3>
+                    <p class="text-sm text-gray-400">Modern styling & animations</p>
+                </div>
+                
+                <!-- JavaScript -->
+                <div class="skill-card bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-gray-700 hover:border-gray-500 transition-all duration-300">
+                    <div class="text-4xl mb-4 bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto">⚡</div>
+                    <h3 class="font-semibold text-lg mb-2 text-white">JavaScript</h3>
+                    <p class="text-sm text-gray-400">Dynamic functionality</p>
+                </div>
+                
+                <!-- React -->
+                <div class="skill-card bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-gray-700 hover:border-gray-500 transition-all duration-300">
+                    <div class="text-4xl mb-4 bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto">⚛️</div>
+                    <h3 class="font-semibold text-lg mb-2 text-white">React</h3>
+                    <p class="text-sm text-gray-400">Modern web applications</p>
+                </div>
+                
+                <!-- Tailwind CSS -->
+                <div class="skill-card bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-gray-700 hover:border-gray-500 transition-all duration-300">
+                    <div class="text-4xl mb-4 bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto">💨</div>
+                    <h3 class="font-semibold text-lg mb-2 text-white">Tailwind CSS</h3>
+                    <p class="text-sm text-gray-400">Utility-first CSS</p>
+                </div>
+                
+                <!-- Bootstrap -->
+                <div class="skill-card bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-gray-700 hover:border-gray-500 transition-all duration-300">
+                    <div class="text-4xl mb-4 bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto">🅱️</div>
+                    <h3 class="font-semibold text-lg mb-2 text-white">Bootstrap</h3>
+                    <p class="text-sm text-gray-400">Responsive design</p>
+                </div>
+                
+                <!-- Figma -->
+                <div class="skill-card bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-gray-700 hover:border-gray-500 transition-all duration-300">
+                    <div class="text-4xl mb-4 bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto">🎯</div>
+                    <h3 class="font-semibold text-lg mb-2 text-white">Figma</h3>
+                    <p class="text-sm text-gray-400">Design & prototyping</p>
+                </div>
+                
+                <!-- UI/UX -->
+                <div class="skill-card bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-gray-700 hover:border-gray-500 transition-all duration-300">
+                    <div class="text-4xl mb-4 bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto">✨</div>
+                    <h3 class="font-semibold text-lg mb-2 text-white">UI/UX</h3>
+                    <p class="text-sm text-gray-400">User experience</p>
+                </div>
+                
+                <!-- Java -->
+                <div class="skill-card bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-gray-700 hover:border-gray-500 transition-all duration-300">
+                    <div class="text-4xl mb-4 bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto">☕</div>
+                    <h3 class="font-semibold text-lg mb-2 text-white">Java</h3>
+                    <p class="text-sm text-gray-400">Object-oriented</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">My Projects</h2>
+                <div class="section-divider w-24 mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Here are some of the projects I've built to showcase my skills and creativity
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white text-6xl">
+                        📝
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Task Manager</h3>
+                        <p class="text-gray-600 mb-4">
+                            A responsive to-do list application with add, edit, delete, and local storage functionality.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">HTML</span>
+                            <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">CSS</span>
+                            <span class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-purple-600 hover:text-purple-700 font-medium">Live Demo</a>
+                            <a href="#" class="text-gray-600 hover:text-gray-700 font-medium">Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center text-white text-6xl">
+                        🎮
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Tic Tac Toe</h3>
+                        <p class="text-gray-600 mb-4">
+                            Interactive tic-tac-toe game with modern design, win detection, and reset functionality.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">HTML</span>
+                            <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">CSS</span>
+                            <span class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-purple-600 hover:text-purple-700 font-medium">Live Demo</a>
+                            <a href="#" class="text-gray-600 hover:text-gray-700 font-medium">Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white text-6xl">
+                        ✂️
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Rock Paper Scissors</h3>
+                        <p class="text-gray-600 mb-4">
+                            Classic game with computer AI, score tracking, and smooth animations.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">HTML</span>
+                            <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">CSS</span>
+                            <span class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-purple-600 hover:text-purple-700 font-medium">Live Demo</a>
+                            <a href="#" class="text-gray-600 hover:text-gray-700 font-medium">Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white text-6xl">
+                        🔒
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Password Generator</h3>
+                        <p class="text-gray-600 mb-4">
+                            Secure password generator with customizable length and character options.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">HTML</span>
+                            <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">CSS</span>
+                            <span class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-purple-600 hover:text-purple-700 font-medium">Live Demo</a>
+                            <a href="#" class="text-gray-600 hover:text-gray-700 font-medium">Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-br from-teal-400 to-blue-500 flex items-center justify-center text-white text-6xl">
+                        ❓
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Quiz App</h3>
+                        <p class="text-gray-600 mb-4">
+                            Interactive quiz application with multiple choice questions and scoring system.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">HTML</span>
+                            <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">CSS</span>
+                            <span class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-purple-600 hover:text-purple-700 font-medium">Live Demo</a>
+                            <a href="#" class="text-gray-600 hover:text-gray-700 font-medium">Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center text-white text-6xl">
+                        🛍️
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">E-Commerce Site</h3>
+                        <p class="text-gray-600 mb-4">
+                            Full-featured online shopping platform with product catalog and cart functionality.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">HTML</span>
+                            <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">CSS</span>
+                            <span class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-purple-600 hover:text-purple-700 font-medium">Live Demo</a>
+                            <a href="#" class="text-gray-600 hover:text-gray-700 font-medium">Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-black mb-4">Get In Touch</h2>
+                <div class="section-divider w-24 mx-auto mb-8"></div>
+                <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+                    I'm always open to discussing new opportunities and interesting projects. 
+                    Let's connect and create something amazing together!
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-semibold text-black mb-6">Let's Connect</h3>
+                    
+                    <div class="flex items-center space-x-4 text-black">
+                        <div class="w-12 h-12 bg-black/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Email</h4>
+                            <p class="text-gray-700">santoshk.dev@email.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4 text-black">
+                        <div class="w-12 h-12 bg-black/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Phone</h4>
+                            <p class="text-gray-700">+91 xxxxx xxxxx</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4 text-black">
+                        <div class="w-12 h-12 bg-black/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Location</h4>
+                            <p class="text-gray-700">India</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="pt-6">
+                        <h4 class="font-semibold text-black mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-black/10 rounded-full flex items-center justify-center text-black hover:bg-black hover:text-white transition-all duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-black/10 rounded-full flex items-center justify-center text-black hover:bg-black hover:text-white transition-all duration-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-black/10 rounded-full flex items-center justify-center text-black hover:bg-black hover:text-white transition-all duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-black/10 rounded-full flex items-center justify-center text-black hover:bg-black hover:text-white transition-all duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-white/90 rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Contact Me</h3>
+                    <form action="#" method="POST" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" name="name" placeholder="Your Name" required class="border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-purple-600 focus:outline-none">
+                            <input type="email" name="email" placeholder="Your Email" required class="border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-purple-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <input type="text" name="subject" placeholder="Subject" required class="border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-purple-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <textarea name="message" rows="4" placeholder="Your Message" required class="border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-purple-600 focus:outline-none"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-purple-600 text-white rounded-md px-4 py-3 font-semibold hover:bg-purple-700 transition-all duration-300 transform hover:scale-105">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col sm:flex-row justify-between items-center">
+                <div class="text-center sm:text-left mb-4 sm:mb-0">
+                    <p class="text-white text-sm">
+                        &copy; 2023 Santosh K. All rights reserved.
+                    </p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="#" class="text-white hover:text-purple-400 transition-all duration-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-purple-400 transition-all duration-300">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-purple-400 transition-all duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-purple-400 transition-all duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
